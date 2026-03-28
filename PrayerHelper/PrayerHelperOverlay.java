@@ -5,14 +5,9 @@ import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.api.Client;
-import net.runelite.api.coords.Point;
-import net.runelite.api.SpriteID;
-import net.runelite.api.Sprite;
 import java.awt.image.BufferedImage;
 import javax.inject.Inject;
 import java.awt.*;
-import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.Prayer;
 import com.example.prayerhelper.PrayerHelperConfig;
 
@@ -70,28 +65,9 @@ public class PrayerHelperOverlay extends Overlay {
             }
         } catch (Exception ignored) {}
 
-        // Korosta prayer-painike, jos highlightPrayer asetettu
-        if (highlightPrayer != null) {
-            Widget widget = null;
-            switch (highlightPrayer) {
-                case PROTECT_FROM_MAGIC:
-                    widget = client.getWidget(WidgetInfo.PRAYER_PROTECT_FROM_MAGIC);
-                    break;
-                case PROTECT_FROM_MISSILES:
-                    widget = client.getWidget(WidgetInfo.PRAYER_PROTECT_FROM_MISSILES);
-                    break;
-                case PROTECT_FROM_MELEE:
-                    widget = client.getWidget(WidgetInfo.PRAYER_PROTECT_FROM_MELEE);
-                    break;
-            }
-            if (widget != null && !widget.isHidden()) {
-                Rectangle bounds = widget.getBounds();
-                if (bounds != null) {
-                    graphics.setColor(new Color(255, 0, 0, 180));
-                    graphics.setStroke(new BasicStroke(4));
-                    graphics.drawRect(bounds.x, bounds.y, bounds.width, bounds.height);
-                }
-            }
+        // Yhteensopivuuden vuoksi kaytetaan tekstivaroitusta prayer-korostuksen sijaan.
+        if (highlightPrayer != null && (currentHint == null || currentHint.isEmpty())) {
+            currentHint = "Suositus: " + highlightPrayer.name();
         }
 
         // Piirrä ikoni

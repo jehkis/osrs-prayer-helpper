@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example.prayerhelper'
+version = '0.1.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://repo.runelite.net'
+    }
+}
+
+def runeLiteVersion = '1.12.22.1'
+
+dependencies {
+    compileOnly "net.runelite:client:${runeLiteVersion}"
+
+    testImplementation "net.runelite:client:${runeLiteVersion}"
+    testImplementation 'junit:junit:4.13.2'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['PrayerHelper']
+            exclude '**/*Test.java'
+        }
+    }
+    test {
+        java {
+            srcDirs = ['PrayerHelper']
+            include '**/*Test.java'
+        }
+    }
+}
+
+tasks.withType(JavaCompile).all {
+    options.encoding = 'UTF-8'
+}

@@ -1,22 +1,3 @@
-        @ConfigItem(
-            keyName = "debugMode",
-            name = "Debug-tila",
-            description = "Näytä kehittäjälle animaatio-ID:t ja muut tiedot overlayssa ja konsolissa"
-        )
-        default boolean debugMode() { return false; }
-    @ConfigItem(
-        keyName = "overlayPosX",
-        name = "Overlayn X-sijainti",
-        description = "Overlayn keskikohdan X-koordinaatti (esim. 260)"
-    )
-    default int overlayPosX() { return 260; }
-
-    @ConfigItem(
-        keyName = "overlayPosY",
-        name = "Overlayn Y-sijainti",
-        description = "Overlayn keskikohdan Y-koordinaatti (esim. 140)"
-    )
-    default int overlayPosY() { return 140; }
 package com.example.prayerhelper;
 
 import net.runelite.client.config.Config;
@@ -80,4 +61,25 @@ public interface PrayerHelperConfig extends Config {
         description = "Overlayn tekstin ja ikonin koko (esim. 32)"
     )
     default int overlaySize() { return 32; }
+
+    @ConfigItem(
+        keyName = "debugMode",
+        name = "Debug-tila",
+        description = "Nayta kehittajalle animaatio-ID:t ja muut tiedot overlayssa ja konsolissa"
+    )
+    default boolean debugMode() { return false; }
+
+    @ConfigItem(
+        keyName = "overlayPosX",
+        name = "Overlayn X-sijainti",
+        description = "Overlayn keskikohdan X-koordinaatti (esim. 260)"
+    )
+    default int overlayPosX() { return 260; }
+
+    @ConfigItem(
+        keyName = "overlayPosY",
+        name = "Overlayn Y-sijainti",
+        description = "Overlayn keskikohdan Y-koordinaatti (esim. 140)"
+    )
+    default int overlayPosY() { return 140; }
 }
