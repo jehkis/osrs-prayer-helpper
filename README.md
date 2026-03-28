@@ -1,110 +1,56 @@
 # osrs-prayer-helpper
 
-Source code for the RuneLite Prayer Helper plugin.
+RuneLite plugin repository for a minimal Prayer Helper feature.
 
-## Requirements
+## Current feature scope
 
-- Java 17 (JDK)
-- Gradle (or the Gradle wrapper, if configured)
+This plugin only provides a low-prayer warning:
+- It listens to the Prayer skill value.
+- It shows an overlay warning when prayer is at or below a configured threshold.
+
+Out of scope:
+- no boss-specific behavior
+- no animation-based recommendations
+- no automatic actions or input simulation
 
 ## Build
 
 ```bash
-gradle clean build
+./gradlew clean build
 ```
 
 ## Tests
 
 ```bash
-gradle test
+./gradlew test
 ```
 
-## Run Locally In RuneLite
-
-```bash
-gradle runRuneLite
-```
-
-Or with the wrapper:
+## Local run
 
 ```bash
 ./gradlew runRuneLite
 ```
 
-## Notes
+## Compliance notes
 
-This repository uses a Gradle project setup, while source files are located under `PrayerHelper`.
+The plugin is intentionally narrow to keep behavior easy to review.
+It only reads prayer stat events and renders a warning overlay.
+It does not interact with menu actions, input events, or any automation flow.
 
-When using Jagex Launcher + RuneLite, a local development plugin is not loaded automatically.
-To make the plugin permanently available in Launcher-started RuneLite, it must be published through the Plugin Hub.
+## Reviewer-facing PR description (for next submission)
 
-## Plugin Hub submission (copy-paste)
+Title:
+Add osrs-prayer-helpper (minimal low-prayer warning overlay)
 
-### Full template
+Body:
+This submission intentionally contains one minimal feature:
+- show an overlay warning when Prayer points are at or below a configurable threshold.
 
-Plugin name:
-Prayer Helper
+Safety/compliance notes:
+- no boss logic
+- no animation parsing
+- no prayer switching recommendations
+- no input automation or click simulation
 
-Repository URL:
-https://github.com/jehkis/osrs-prayer-helpper
-
-Support URL:
-https://github.com/jehkis/osrs-prayer-helpper/issues
-
-Author:
-jehkis
-
-Tags:
-prayer,helper,overlay,boss,pvm
-
-Short description:
-Prayer Helper provides prayer-switch hints and warning overlays for selected PvM encounters.
-
-Detailed description:
-Prayer Helper helps with defensive prayer timing in boss encounters by showing contextual overlay hints based on NPC animations and player state.
-
-Current functionality includes:
-- Prayer switch hints for supported encounters
-- Warning overlays for low Hitpoints and low Prayer
-- Configurable overlay visibility and display behavior
-- Lightweight client-side guidance only (no automation or input simulation)
-
-The plugin reads game state and renders overlays locally in RuneLite.
-It does not perform actions, clicks, or automated gameplay behavior.
-
-Reviewer note:
-This plugin is guidance-only.
-It uses RuneLite event subscriptions (animation/stat/game tick events) to show UI overlays and warnings.
-No input events are sent and no automation is performed.
-
-### Minimal template
-
-Plugin name:
-Prayer Helper
-
-Repository URL:
-https://github.com/jehkis/osrs-prayer-helpper
-
-Support URL:
-https://github.com/jehkis/osrs-prayer-helpper/issues
-
-Short description:
-Prayer Helper shows prayer-switch hints and warning overlays for selected PvM encounters.
-
-Detailed description:
-Prayer Helper provides client-side guidance overlays based on boss animations and player stats.
-It shows protection prayer hints and low HP/prayer warnings.
-No automation or input simulation is performed.
-
-Tags:
-prayer,helper,overlay,boss,pvm
-
-Reviewer note:
-This plugin is guidance-only and overlay-based.
-It reads game state and renders UI hints locally.
-It does not automate gameplay or send input events.
-
-### Ultra-short template
-
-Prayer Helper is a client-side overlay plugin that shows prayer-switch hints and low HP/prayer warnings for selected PvM encounters.
-No automation, no input simulation, and no gameplay actions are performed.
+Repository:
+https://github.com/jehkis/osrs-prayer-helpper.git

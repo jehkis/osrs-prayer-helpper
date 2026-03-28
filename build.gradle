@@ -14,31 +14,13 @@ repositories {
     }
 }
 
-def runeLiteVersion = '1.12.22.1'
+def runeLiteVersion = 'latest.release'
 
 dependencies {
     compileOnly "net.runelite:client:${runeLiteVersion}"
 
     testImplementation "net.runelite:client:${runeLiteVersion}"
     testImplementation 'junit:junit:4.13.2'
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ['PrayerHelper']
-            exclude '**/*Test.java'
-        }
-        resources {
-            srcDirs = ['PrayerHelper/resources']
-        }
-    }
-    test {
-        java {
-            srcDirs = ['PrayerHelper']
-            include '**/*Test.java'
-        }
-    }
 }
 
 tasks.withType(JavaCompile).all {
