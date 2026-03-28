@@ -29,6 +29,9 @@ sourceSets {
             srcDirs = ['PrayerHelper']
             exclude '**/*Test.java'
         }
+        resources {
+            srcDirs = ['PrayerHelper/resources']
+        }
     }
     test {
         java {
@@ -40,4 +43,12 @@ sourceSets {
 
 tasks.withType(JavaCompile).all {
     options.encoding = 'UTF-8'
+}
+
+task runRuneLite(type: JavaExec) {
+    group = 'application'
+    description = 'Launch RuneLite with PrayerHelper loaded from local sources'
+    classpath = sourceSets.test.runtimeClasspath
+    main = 'com.example.prayerhelper.PrayerHelperPluginTest'
+    jvmArgs '-ea'
 }
