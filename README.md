@@ -1,11 +1,11 @@
 # osrs-prayer-helpper
 
-RuneLite Prayer Helper -pluginin lahdekoodi.
+Source code for the RuneLite Prayer Helper plugin.
 
-## Vaatimukset
+## Requirements
 
 - Java 17 (JDK)
-- Gradle (tai vaihtoehtoisesti gradle-wrapper, jos lisataan myohemmin)
+- Gradle (or the Gradle wrapper, if configured)
 
 ## Build
 
@@ -13,30 +13,30 @@ RuneLite Prayer Helper -pluginin lahdekoodi.
 gradle clean build
 ```
 
-## Testit
+## Tests
 
 ```bash
 gradle test
 ```
 
-## Aja paikallisesti RuneLitessa
+## Run Locally In RuneLite
 
 ```bash
 gradle runRuneLite
 ```
 
-Tai wrapperilla:
+Or with the wrapper:
 
 ```bash
 ./gradlew runRuneLite
 ```
 
-## Huomio
+## Notes
 
-Tama repository kayttaa nyt Gradle-projektirakennetta, mutta lahdekoodi sijaitsee kansiossa `PrayerHelper`.
+This repository uses a Gradle project setup, while source files are located under `PrayerHelper`.
 
-Jagex Launcher + RuneLite -kaytossa plugin ei tule suoraan paikallisesta kehitysprojektista.
-Jotta plugin nakyy pysyvasti Launcherista avatussa RuneLitessa, plugin tulee julkaista Plugin Hubin kautta.
+When using Jagex Launcher + RuneLite, a local development plugin is not loaded automatically.
+To make the plugin permanently available in Launcher-started RuneLite, it must be published through the Plugin Hub.
 
 ## Plugin Hub submission (copy-paste)
 
