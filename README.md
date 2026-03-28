@@ -34,3 +34,6 @@ Tai wrapperilla:
 ## Huomio
 
 Tama repository kayttaa nyt Gradle-projektirakennetta, mutta lahdekoodi sijaitsee kansiossa `PrayerHelper`.
+
+Jagex Launcher + RuneLite -kaytossa plugin ei tule suoraan paikallisesta kehitysprojektista.
+Jotta plugin nakyy pysyvasti Launcherista avatussa RuneLitessa, plugin tulee julkaista Plugin Hubin kautta.

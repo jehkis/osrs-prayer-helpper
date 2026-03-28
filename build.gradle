@@ -29,6 +29,9 @@ sourceSets {
             srcDirs = ['PrayerHelper']
             exclude '**/*Test.java'
         }
+        resources {
+            srcDirs = ['PrayerHelper/resources']
+        }
     }
     test {
         java {
