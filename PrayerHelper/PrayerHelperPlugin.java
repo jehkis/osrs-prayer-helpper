@@ -188,40 +188,34 @@ public class PrayerHelperPlugin extends Plugin {
     }
 
     @Subscribe
-    public void onPrayerStatChanged(StatChanged event) {
-        if (event.getSkill() != Skill.PRAYER) {
-            return;
-        }
-
-        int currentPrayer = event.getBoostedLevel();
-        int maxPrayer = event.getLevel();
-        if (maxPrayer > 0 && currentPrayer <= (maxPrayer * 0.2)) {
-            if (!lowPrayerWarningActive) {
-                overlay.setHint("VAROITUS: Prayer-pisteet vahissa!", null);
-                lowPrayerWarningActive = true;
-            }
-        } else if (lowPrayerWarningActive) {
-            overlay.clearHint();
-            lowPrayerWarningActive = false;
-        }
-    }
-
-    @Subscribe
     public void onStatChanged(StatChanged event) {
-        if (event.getSkill() != Skill.HITPOINTS) {
+        if (event.getSkill() == Skill.PRAYER) {
+            int currentPrayer = event.getBoostedLevel();
+            int maxPrayer = event.getLevel();
+            if (maxPrayer > 0 && currentPrayer <= (maxPrayer * 0.2)) {
+                if (!lowPrayerWarningActive) {
+                    overlay.setHint("VAROITUS: Prayer-pisteet vahissa!", null);
+                    lowPrayerWarningActive = true;
+                }
+            } else if (lowPrayerWarningActive) {
+                overlay.clearHint();
+                lowPrayerWarningActive = false;
+            }
             return;
         }
 
-        int currentHp = event.getBoostedLevel();
-        int maxHp = event.getLevel();
-        if (maxHp > 0 && currentHp <= (maxHp * 0.3)) {
-            if (!lowHpWarningActive) {
-                overlay.setHint("VAROITUS: Matala HP!", null);
-                lowHpWarningActive = true;
+        if (event.getSkill() == Skill.HITPOINTS) {
+            int currentHp = event.getBoostedLevel();
+            int maxHp = event.getLevel();
+            if (maxHp > 0 && currentHp <= (maxHp * 0.3)) {
+                if (!lowHpWarningActive) {
+                    overlay.setHint("VAROITUS: Matala HP!", null);
+                    lowHpWarningActive = true;
+                }
+            } else if (lowHpWarningActive) {
+                overlay.clearHint();
+                lowHpWarningActive = false;
             }
-        } else if (lowHpWarningActive) {
-            overlay.clearHint();
-            lowHpWarningActive = false;
         }
     }
 }

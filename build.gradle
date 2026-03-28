@@ -47,4 +47,5 @@ task runRuneLite(type: JavaExec) {
     description = 'Launch RuneLite with PrayerHelper loaded from local sources'
     classpath = sourceSets.test.runtimeClasspath
     main = 'com.example.prayerhelper.PrayerHelperPluginTest'
+    jvmArgs '-ea'
 }
