@@ -19,6 +19,18 @@ gradle clean build
 gradle test
 ```
 
+## Aja paikallisesti RuneLitessa
+
+```bash
+gradle runRuneLite
+```
+
+Tai wrapperilla:
+
+```bash
+./gradlew runRuneLite
+```
+
 ## Huomio
 
 Tama repository kayttaa nyt Gradle-projektirakennetta, mutta lahdekoodi sijaitsee kansiossa `PrayerHelper`.
